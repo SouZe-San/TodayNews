@@ -2,18 +2,23 @@ import React, { useState } from "react";
 import "./App.css";
 import NavBar from "./components/navbar/NavBar";
 import Newsbox from "./components/newsblock/Newsbox";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LoadingBar from "react-top-loading-bar";
-
+import LogIn from "./components/login/LogIn";
 function App() {
   // Set the page size..
+  const [Condition, setCondition] = useState(false);
+  const [userName, setUserName] = useState("");
   const [progress, setProgress] = useState(0); //--> For Loading bar process
 
   // Now Routing The Navigation ----
   return (
     <div className="App grid">
       <Router>
-        <NavBar />
+        <NavBar setCondition={setCondition} val={Condition} userName={userName} />
+        {/*This Is a LogIn Page */}
+        <LogIn log={Condition} setUseName={setUserName} />
+        {/*THis is The Progress Bar */}
         <LoadingBar height={2} color="#fc5f05" progress={progress} />
         <Routes>
           <Route

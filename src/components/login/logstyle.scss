@@ -1,0 +1,16 @@
+.mainForm {
+    place-self: flex-end;
+    position: absolute;
+    z-index: 0;
+    transition: transform 0.3s ease-in;
+}
+
+.down {
+    transform: translate(-2%, 3%);
+    top: 5rem;
+}
+
+.up {
+    transform: translate(-2%, -100%);
+    top: 0;
+}

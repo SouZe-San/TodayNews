@@ -3,12 +3,15 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { Link } from "react-router-dom";
+import UserIcon from "../usericon/UserIcon";
+
 import { gsap } from "gsap";
 import "./style.scss";
 
-const NavBar = () => {
+const NavBar = (props) => {
   // All states and Reference
   const [clicked, setClick] = useState(false);
+
   const navRef = useRef(null);
   const liRef = useRef(null);
 
@@ -47,6 +50,9 @@ const NavBar = () => {
     }
   }, [tl]);
 
+  const clickedChange = () => {
+    props.setCondition(!props.val);
+  };
   // Function for onCLick --->
   const handClicked = () => {
     setClick(!clicked);
@@ -73,32 +79,32 @@ const NavBar = () => {
             }
           >
             <li ref={liRef} className="liItems">
-              <Link className="nav-link" to="/">
+              <Link className="nav-a" to="/">
                 Home
               </Link>
             </li>
             <li ref={liRef} className="liItems">
-              <Link className="nav-link" to="/sports">
+              <Link className="nav-a" to="/sports">
                 Sports
               </Link>
             </li>
             <li ref={liRef} className="liItems">
-              <Link className="nav-link" to="/science">
+              <Link className="nav-a" to="/science">
                 Science
               </Link>
             </li>
             <li ref={liRef} className="liItems">
-              <Link className="nav-link" to="/business">
+              <Link className="nav-a" to="/business">
                 Business
               </Link>
             </li>
             <li ref={liRef} className="liItems">
-              <Link className="nav-link" to="/technology">
+              <Link className="nav-a" to="/technology">
                 Technology
               </Link>
             </li>
             <li ref={liRef} className="liItems">
-              <Link className="nav-link" to="/entertainment">
+              <Link className="nav-a" to="/entertainment">
                 Entertainment
               </Link>
             </li>
@@ -106,8 +112,12 @@ const NavBar = () => {
         </div>
         {/* ----------------- Icon ------------- */}
         <div className="flex gap-4 items-center scale-[1.3]">
-          <span className="cursor-pointer">
-            <AccountCircleIcon />
+          <span className="cursor-pointer" onClick={clickedChange}>
+            {props.userName ? (
+              <UserIcon latter={props.userName.charAt(0).toUpperCase()} />
+            ) : (
+              <AccountCircleIcon />
+            )}
           </span>
           <div onClick={handClicked} className="cursor-pointer menuButton">
             {clicked ? <CloseIcon /> : <MenuIcon />}
