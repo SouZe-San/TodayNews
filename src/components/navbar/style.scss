@@ -88,7 +88,7 @@
                 ul {
                     //* -> Nav At Open Condition
                     grid-template-columns: none;
-                    position: fixed;
+                    position: absolute;
                     right: 1%;
                     width: 5px;
                     font-size: 2rem;
@@ -98,6 +98,7 @@
                     background: rgb(167, 168, 167);
                     background: linear-gradient(232deg, rgba(167, 168, 167, 1) 0%, rgba(189, 191, 191, 1) 31%, rgba(96, 96, 97, 1) 64%, rgba(50, 49, 49, 1) 91%);
                     box-shadow: -4px 15px 18px -5px #000000bf;
+                    z-index: 2;
                     // left: 1%;
                     // top: 7%;
                     // padding: 2rem 3rem;
@@ -149,6 +150,8 @@
 
             div {
                 .menuButton {
+                    position: static;
+                    z-index: 5;
                     display: block;
                     height: 2rem;
                     aspect-ratio: 1;

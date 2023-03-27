@@ -1,0 +1,20 @@
+.scroll-up {
+    padding: 0.79rem;
+    background: #34323da0;
+    position: fixed;
+    bottom: 4rem;
+    right: 2rem;
+    border-radius: 5px;
+    color: wheat;
+    font-size: 1.3rem;
+    font-weight: bold;
+    opacity: 0.8;
+    transition: 0.4s;
+
+
+    &:hover {
+        background: rgb(31, 31, 31);
+        color: white;
+        opacity: 1;
+    }
+}

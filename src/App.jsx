@@ -1,93 +1,60 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import NavBar from "./components/navbar/NavBar";
 import Newsbox from "./components/newsblock/Newsbox";
-// import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import LoadingBar from "react-top-loading-bar";
 
 function App() {
   // Set the page size..
-  const pageSize = 5;
   const [progress, setProgress] = useState(0); //--> For Loading bar process
 
   // Now Routing The Navigation ----
   return (
     <div className="App grid">
-      {/* <Router> */}
-      <NavBar />
-      <LoadingBar
-        height={3} // Height of the bar in px
-        color="#f11946" // Color of the loading bar
-        progress={progress} // Set the progress ... the progress set in newBox Component
-      />
-      <Newsbox
-        setProgress={setProgress}
-        key="general"
-        pageSize={pageSize}
-        country="in"
-        category="general"
-      />
-
-      {/* <Switch>
-          <Route exact path="/">
-            <Newsbox
-              setProgress={setProgress}
-              key="general"
-              pageSize={pageSize}
-              country="in"
-              category="general"
-            />
-          </Route>
-
-          <Route exact path="/business">
-            <Newsbox
-              setProgress={setProgress}
-              key="business"
-              pageSize={pageSize}
-              country="in"
-              category="business"
-            />
-          </Route>
-
-          <Route exact path="/entertainment">
-            <Newsbox
-              setProgress={setProgress}
-              key="entertainment"
-              pageSize={pageSize}
-              country="in"
-              category="entertainment"
-            />
-          </Route>
-
-          <Route exact path="/science">
-            <Newsbox
-              setProgress={setProgress}
-              key="science"
-              pageSize={pageSize}
-              country="in"
-              category="science"
-            />
-          </Route>
-          <Route exact path="/sports">
-            <Newsbox
-              setProgress={setProgress}
-              key="sports"
-              pageSize={pageSize}
-              country="in"
-              category="sports"
-            />
-          </Route>
-          <Route exact path="/technology">
-            <Newsbox
-              setProgress={setProgress}
-              key="technology"
-              pageSize={pageSize}
-              country="in"
-              category="technology"
-            />
-          </Route>
-        </Switch> */}
-      {/* </Router> */}
+      <Router>
+        <NavBar />
+        <LoadingBar height={2} color="#fc5f05" progress={progress} />
+        <Routes>
+          <Route
+            exact
+            path="/"
+            element={<Newsbox key="general" setProgress={setProgress} category="general" />}
+          />
+          <Route
+            exact
+            path="/sports"
+            element={<Newsbox key="sports" setProgress={setProgress} category="sports " />}
+          />
+          <Route
+            exact
+            path="/science"
+            element={<Newsbox key="science" setProgress={setProgress} category="science" />}
+          />
+          <Route
+            exact
+            path="/business"
+            element={<Newsbox key="business" setProgress={setProgress} category="business" />}
+          />
+          <Route
+            exact
+            path="/technology"
+            element={<Newsbox key="technology" setProgress={setProgress} category="technology" />}
+          />
+          <Route
+            exact // direct the url if fully match with the path
+            path="/entertainment"
+            element={
+              <Newsbox
+                pageSize={9} // the number of news articles
+                key="entertainment"
+                setProgress={setProgress} // sending the progress of BAR
+                category="entertainment"
+              />
+            }
+          />
+        </Routes>
+      </Router>
     </div>
   );
 }

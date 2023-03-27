@@ -73,34 +73,34 @@ const NavBar = () => {
             }
           >
             <li ref={liRef} className="liItems">
-              <a className="nav-link" href="/">
+              <Link className="nav-link" to="/">
                 Home
-              </a>
+              </Link>
             </li>
             <li ref={liRef} className="liItems">
-              <a className="nav-link" href="/sports">
+              <Link className="nav-link" to="/sports">
                 Sports
-              </a>
+              </Link>
             </li>
             <li ref={liRef} className="liItems">
-              <a className="nav-link" href="/science">
+              <Link className="nav-link" to="/science">
                 Science
-              </a>
+              </Link>
             </li>
             <li ref={liRef} className="liItems">
-              <a className="nav-link" href="/business">
+              <Link className="nav-link" to="/business">
                 Business
-              </a>
+              </Link>
             </li>
             <li ref={liRef} className="liItems">
-              <a className="nav-link" href="/technology">
+              <Link className="nav-link" to="/technology">
                 Technology
-              </a>
+              </Link>
             </li>
             <li ref={liRef} className="liItems">
-              <a className="nav-link" href="/entertainment">
+              <Link className="nav-link" to="/entertainment">
                 Entertainment
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
