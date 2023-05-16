@@ -7,7 +7,7 @@ Welcome to my awesome project! This is a project I created to demonstrate my ski
 - 2: Get all Type of Daily News Here
 
 ## _Technologies Used_
-- Front-end: React, Tailwind css
+- Front-end: React, Tailwind css, Scss
 - Back-end: Node.js
 - APIs: News API
 
